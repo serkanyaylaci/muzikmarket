@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1010286230226",
+    "firebase_url": "https://muzikmarket-default-rtdb.firebaseio.com",
+    "project_id": "muzikmarket",
+    "storage_bucket": "muzikmarket.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010286230226:android:0149fe1e7f860406074b0b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010286230226-5m2kh86hr8q50270cauug5psevrv5r1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8b6QmhWnKOv0iSngCSWDXqtqxfJmc6ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010286230226-5m2kh86hr8q50270cauug5psevrv5r1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
