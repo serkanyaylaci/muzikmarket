@@ -24,7 +24,7 @@ class ProductsPage extends StatelessWidget {
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return Center(child: Text('Ürün bulunamadı.'));
+            return Center(child: Text('Ürün kayıtlı değil.'));
           }
 
           var products = snapshot.data!.docs;
