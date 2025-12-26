@@ -78,7 +78,7 @@ class _AccountPageState extends State<AccountPage> {
               _showInfoDialog(
                 context,
                 'Uygulama Hakkında',
-                'Harika! Müzik Market uygulamamızı indirdiğiniz için teşekkür ederiz. Şimdi müziğin keyfini çıkarın ve ihtiyacınız olan her şeyi keşfedin!',
+                'Mükemmel!İşlem tamamlandı.Bizi tercih ettiğiniz için teşekkür eder iyi günler dileriz!',
               );
             },
           ),
