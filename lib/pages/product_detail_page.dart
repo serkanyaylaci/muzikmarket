@@ -55,7 +55,7 @@ class ProductDetailPage extends StatelessWidget {
               onPressed: () {
                 // Sepete ekleme işlemi
               },
-              child: const Text('Sepete Ekle'),
+              child: const Text('Sepete ekle'),
             ),
             const SizedBox(height: 16),
             FavoritesManager(productData: data),
