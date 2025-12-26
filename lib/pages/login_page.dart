@@ -207,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
 
-                //üye değilmisin hemen şimdi ol
+                //üye değil misin hemen şimdi ol
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
