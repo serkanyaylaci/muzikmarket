@@ -1,42 +1,50 @@
+# Proje adı (Flutter tarafından otomatik oluşturulmuştur)
 name: flutter_application_2
+
+# Projenin kısa açıklaması (ileride daha açıklayıcı hale getirilebilir)
 description: "A new Flutter project."
+
+# Bu proje pub.dev üzerinde yayınlanmayacak
 publish_to: 'none'
 
+# Uygulama sürüm bilgisi
+# versionName + versionCode (Android)
 version: 1.0.0+1
 
+# Kullanılan Dart SDK sürüm aralığı
 environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
+  # Flutter SDK
   flutter:
     sdk: flutter
 
-  # Firebase
+  # Firebase paketleri (Authentication, Database, Storage)
   firebase_core: ^4.2.1
   firebase_auth: ^6.1.2
   cloud_firestore: ^6.1.0
   firebase_storage: ^13.0.4
   google_sign_in: ^6.2.1
 
-  # Diğer paketler
+  # Diğer üçüncü parti paketler
+  # Video oynatma
   video_player: ^2.8.6
+
+  # HTTP istekleri
   http: ^1.2.1
+
+  # Harici link açma
   url_launcher: ^6.2.6
+
+  # Animasyon sıralamaları
   flutter_sequence_animation: ^4.0.0
+
+  # Galeriden/kameradan görsel seçme
   image_picker: ^1.1.1
+
+  # İçerik paylaşımı
   share_plus: ^10.0.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^6.0.0
-
-flutter:
-  uses-material-design: true
-
-  assets:
-    - lib/resimler/
-    - lib/assets/videos/
-
-dependency_overrides:
-  firebase_core_platform_interface: ^6.0.2
+  # Widget ve unit testler için Flutter test pake
