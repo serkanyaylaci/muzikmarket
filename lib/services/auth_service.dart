@@ -8,7 +8,7 @@ class AuthService {
   // Google ile giriş yap
   Future<UserCredential?> signInWithGoogle() async {
     try {
-      // 1. İnteraktif giriş işlemini başlat
+      // 1. İnteraktif giriş işlemini başlatma
       final GoogleSignInAccount? gUser = await _googleSignIn.signIn();
 
       // 2. Eğer kullanıcı giriş pencresini kapatırsa
@@ -17,16 +17,16 @@ class AuthService {
         return null;
       }
 
-      // 3. Kimlik bilgilerini (Token) al
+      // 3. Kimlik bilgilerini (Token) alma
       final GoogleSignInAuthentication gAuth = await gUser.authentication;
 
-      // 4. Kullanıcı için Firebase bileti (Credential) oluştur
+      // 4. Kullanıcı için Firebase bileti (Credential) oluşturma
       final credential = GoogleAuthProvider.credential(
         accessToken: gAuth.accessToken,
         idToken: gAuth.idToken,
       );
 
-      // 5. Son olarak Firebase'e giriş yap
+      // 5. Son olarak Firebase'e giriş yapma
       return await FirebaseAuth.instance.signInWithCredential(credential);
 
     } catch (e) {
