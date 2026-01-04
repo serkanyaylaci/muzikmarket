@@ -8,23 +8,28 @@ import 'package:flutter_application_2/pages/admin_welcome_page.dart';
 import 'package:flutter_application_2/pages/forgot_password_page.dart';
 import 'package:flutter_application_2/services/auth_service.dart';
 
-// ignore: implementation_import
-
+// Login (Giriş) Sayfası
 class LoginPage extends StatefulWidget {
+  // Kayıt ol sayfasına geçiş için kullanılan callback
   final Function()? onTap;
+
   const LoginPage({super.key, required this.onTap});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
+// LoginPage state sınıfı
 class _LoginPageState extends State<LoginPage> {
-  //text editing controller
+  // Kullanıcının e-posta bilgisi için controller
   final emailController = TextEditingController();
+
+  // Kullanıcının şifre bilgisi için controller
   final passwordController = TextEditingController();
 
-  //sign in user method
+  // Kullanıcıyı Firebase Authentication ile giriş yaptıran fonksiyon
   void signUserIn() async {
-    // Loading circle'ı göster
+    // Giriş işlemi sırasında kullanıcıya loading göstergesi gösterilir
     showDialog(
       context: context,
       builder: (context) {
@@ -35,25 +40,26 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     try {
-      // Firebase Authentication ile giriş yapma işlemi
+      // Firebase Authentication üzerinden e-posta ve şifre ile giriş
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
 
-      // Giriş işlemi başarılıysa loading circle'ı kapat
+      // Giriş başarılıysa loading dialog kapatılır
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      // Giriş işlemi sırasında bir hata oluştuğunda loading circle'ı kapat
+      // Giriş sırasında hata oluşursa loading dialog kapatılır
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
-      //show error message
+
+      // Firebase hata kodu kullanıcıya gösterilir
       showErrorMessage(e.code);
     }
   }
 
-  //error message to user
+  // Kullanıcıya hata mesajı gösteren dialog
   void showErrorMessage(String message) {
     showDialog(
       context: context,
@@ -74,170 +80,21 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Login sayfası arka plan rengi
       backgroundColor: const Color(0xFF55aacc),
+
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
+              // Sayfa içeriğini dikeyde ortalar
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
-                //logo
+
+                // Uygulama logosu
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'lib/resimler/musicotes.png',
-                      width: 100,
-                      height: 100,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 50),
-                //welcome back, you've been missed
-                const Text(
-                  "Tekrar hoşgeldin, seni özledik",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 25),
-                //kullanıcı adı textfieldd
-                MyTextField(
-                  controller: emailController,
-                  hintText: 'E-Posta Adresi',
-                  obscureText: false,
-                ),
-                const SizedBox(height: 10),
-                //şifre textfield
-                MyTextField(
-                  controller: passwordController,
-                  hintText: 'Şifre',
-                  obscureText: true,
-                ),
-                const SizedBox(height: 10),
-                //şifremi unuttum
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const ForgotPasswordPage();
-                              },
-                            ),
-                          );
-                        },
-                        child: const Text(
-                          'Parolanızı mı unuttunuz?',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 8, 8, 8),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 25),
-                //giriş yap tuşu
-                MySignButton(
-                  text: "Giriş Yap",
-                  onTap: signUserIn,
-                ),
-                const SizedBox(height: 35),
-                //şununla devam et
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                          color: Colors.grey[400],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          'Veya bununla devam et',
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 8, 8, 8)),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                          color: Colors.grey[400],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                //google button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SquareTile(
-                      onTap: () => AuthService().signInWithGoogle(),
-                      imagePath:
-                          'lib/resimler/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png',
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ), // Araya bir boşluk ekleyelim
-                    SquareTile(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AdminWelcomePage(),
-                          ),
-                        );
-                      },
-                      imagePath: 'lib/resimler/Admin Panel.png',
-                    ),
-                  ],
-                ),
-
-                //üye değil misin hemen şimdi ol
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Üye değilmisin?',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 8, 8, 8),
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text(
-                        'Şimdi üye ol',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 252, 252, 251),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                // Satıcı paneli butonu
-                const SizedBox(height: 20),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+                      'lib/resimler/musico
