@@ -57,7 +57,7 @@ class _MyTextFieldState extends State<MyTextField> {
                     color: Colors.grey,
                   ),
                 )
-              : null,
+              : null,// Eğer şifre alanı değilse ikon gösterme.
         ),
       ),
     );
