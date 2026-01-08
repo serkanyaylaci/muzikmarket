@@ -9,7 +9,7 @@ class SquareTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),//İçerideki resim ile kenarlar arasındaki boşluk.
         decoration: BoxDecoration(
           border: Border.all(
             color: const Color.fromARGB(255, 181, 230, 250),
