@@ -30,7 +30,7 @@ class MySignButton extends StatelessWidget {
             text,
             style: const TextStyle(
               color: Colors.white,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,// Yazıyı kalınlaştırır.
               fontSize: 16,
             ),
           ),
