@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     HomeProductPage(),
     FavoritesPage(),
-    CategoriesPage(), // Yeni eklenen sayfa
+    CategoriesPage(), // yeni eklenen sayfa
     const Center(
       child: Text(
         'Sepetim',
