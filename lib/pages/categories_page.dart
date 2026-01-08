@@ -4,7 +4,7 @@ import 'products_page.dart';
 class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Örnek kategoriler listesi ve resim yolları
+    // örnek kategoriler listesi ve resim yolları
     final List<Map<String, String>> categories = [
       {'name': 'Yaylı Çalgılar', 'image': 'lib/resimler/Yaylı Çalgı.jpg'},
       {'name': 'Vurmalı Çalgılar', 'image': 'lib/resimler/Vurmalı Çalgı.png'},
