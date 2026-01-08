@@ -31,7 +31,7 @@ class FavoritesManager extends StatelessWidget {
 
         if (querySnapshot.docs.isNotEmpty) {
           // Ürün zaten favorilerde
-          print('Bu ürün zaten favorilerinizde.');
+          print('Bu ürün zaten favorilerinizde bulunmakta.');
         } else {
           // Ürün favoriye ekleniyor
           await FirebaseFirestore.instance.collection('Favorites').add({
